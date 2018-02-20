@@ -1,0 +1,11 @@
+{% extends "base/base.html" %}
+
+{% block title %}Petición denegada{% endblock %}
+
+{% block content %}
+	<script>alert("No fue posible acceder al link requerido")</script>
+	<h1>Apreciado usuario, debe estar logeado para acceder a los formularios.</h1>
+	<p><a href="/">Iniciar sesión</a></p>
+	<p><a href="/registrar">Registrarme</a></p>
+	
+{% endblock %}

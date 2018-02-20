@@ -1,0 +1,13 @@
+{% extends 'base/base.html'%}
+
+{% block content %}
+
+	<h5>Formulario para ingresar un nuevo equipo a un torneo especificado</h5>
+
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Guardar">
+	</form>
+	
+{% endblock %}

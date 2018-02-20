@@ -1,0 +1,11 @@
+{% extends 'base/base.html'%}
+
+{% block content %}
+	<h1>Agregando un nuevo jugador</h1>
+	<form method="post">
+		{% csrf_token %} <!-- Es necesario en todos los formularios, para que no hayan errores -->
+		{{ form.as_p }} <!-- as_p quiere decir que es por párrafos, en etiquetas <p> -->
+		<button type="submit">Guardar</button>
+	</form>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+	<h1>Lista de todos los torneos de la plataforma</h1>
+
+	{% if misTorneos %}
+	<table>
+		<thead>
+			<tr>
+				<td>Nombre</td>
+				<td>Deporte</td>
+				<td>Fecha</td>
+				<td>Sexo</td>
+			</tr>
+		</thead>
+
+		{% for torneo in misTorneos %}
+		<tbody>
+			<tr>			
+					<td>{{torneo.nombre}}</td>
+					<td>{{torneo.deporte}}</td>
+					<td>{{torneo.fecha}}</td>
+					<td>{{torneo.sexo}}</td>	
+			</tr>
+		</tbody>
+		{% endfor %}
+
+	</table>
+	{% else %}
+		<p>No exste ningún torneo en la plataforma</p>
+	{% endif %}
+
+{% endblock %}

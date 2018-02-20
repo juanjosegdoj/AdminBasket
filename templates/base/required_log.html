@@ -1,0 +1,10 @@
+{% extends "base/base.html" %}
+
+{% block title %}Ingreso Inválido{% endblock %}
+
+{% block content %}
+	<script>alert("No fue posible acceder al link requerido")</script>
+	<h1>Apreciado usuario, debe estar logeado para acceder a los formularios.</h1>
+	<a href="/">Iniciar sesión</a>
+	<a href="/registrar">>Registrarme</a>
+{% endblock %}

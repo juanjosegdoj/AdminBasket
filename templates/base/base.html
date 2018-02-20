@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %} Document {% endblock %}</title>
+
+ 	<!-- Cargando archivo estático -->
+	{% load static from staticfiles %}
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+	{% block styles %}
+
+	{% endblock styles %}
+</head>
+<body>
+	{% block navbar %}
+  <h1>Gestiona y administra tus deportes</h1>
+
+  <ul>
+    <li>
+        <a href="/jugador">Jugadores</a>
+        <ul>
+            <li><a href="/jugador/listar">Listar</a></li>
+            <li><a href="/jugador/nuevo">Nuevo Jugador</a></li>
+      </ul>
+    </li>
+
+
+    <li>
+      <a href="/equipo" >Equipos</a>
+      <ul>
+        <li><a href="/equipo/nuevo">Agregar un equipo</a></li>
+        <li><a href="/equipo/listado">Listado de equipos</a></li>
+      </ul>
+    </li>
+    
+    <li>
+      <a href="/torneo" >Torneos</a>
+      <ul>
+        <li><a href="/torneo/nuevo">Crear un nuevo torneo</a></li>
+        <li><a href="/torneo/listado">Listado de torneos</a></li>
+      </ul>
+    </li>  
+
+    <li>
+      <a href="/about">Acerca de</a>
+      <ul>
+        <li><a href="/about/">nuestre mision</a></li>
+        <li><a href="">Soporte y comunidad</a></li>
+      </ul>
+    </li>  
+
+    </ul>
+    <ul>
+      <li>
+        <a href="">Mi cuenta</a>
+        <ul>
+            {% if user.is_authenticated %}
+              <li><a href="/salir/">Cerrar Sesion</a></li>
+            {% else %}
+              <li><a href="/salir/">Iniciar Sesión</a></li>
+              <li><a href="/registrar">Registrarme</a></li>
+            {% endif %}
+            
+        </ul>
+      </li>
+    </ul>
+
+  {% endblock %}
+
+  {% block tituloPag %}
+  {% endblock tituloPag %}
+
+  {% block header %}
+  {% endblock header %}
+
+	{% block content %}
+	{% endblock content %}
+
+	{% block scripts %}
+	{% endblock scripts %}
+
+	{% block footer %}
+	{% endblock footer %}
+	
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends 'base/base.html'%}
+
+{% block content %}	
+
+	{% if object_list %}
+		<p> --- Equipos de todos los torneos  --- </p>
+		<table>	
+			<thead>
+				<tr>
+					<td>Torneo</td>
+					<td>Nombre</td>
+					<td>Puntos</td>
+					<td>Posición</td>
+					<td>PartJug</td>
+					<td>PartGan</td>
+					<td>PartPerd</td>
+					<td>PartW</td>
+					<td>CestAfa</td>
+					<td>CestCon</td>
+					<td>CestDif</td> 
+				</tr>
+			</thead>
+		{% for equipo in object_list %}
+			<tbody>
+				<tr> 
+					<td>{{ equipo.torneo.nombre }}</td>
+					<td>{{ equipo.nombre }}</td>
+					<td>{{ equipo.puntos }}</td>
+					<td>{{ equipo.posicion }}</td>
+					<td>{{ equipo.partJug }}</td>
+					<td>{{ equipo.partGan }}</td>
+					<td>{{ equipo.partPerd }}</td>
+					<td>{{ equipo.partW }}</td>
+					<td>{{ equipo.cestAfa }}</td>
+					<td>{{ equipo.cestCon }}</td>
+					<td>{{ equipo.cestDif }}</td>
+				</tr>
+			</tbody>
+
+		{% endfor %}
+		</table>
+
+	{% else %}
+		<p>No hay equipos en ningún torneo</p>
+	{% endif %}
+
+
+{% endblock %}
