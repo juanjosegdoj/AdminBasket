@@ -15,19 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.urls import path
 
 from apps.main.views import HomeView, AboutView, RegisterUser, LoginView, LogOut, HomeView
 
 urlpatterns = [
-    url(r'^$', LoginView.as_view(), name="main"),
-    url(r'^salir/', LogOut.as_view()),
-    url(r'^registrar/', RegisterUser.as_view(), name="reg"),
-    url(r'^about/', AboutView.as_view()),
-    url(r'^admin/', admin.site.urls),
-    
-    url(r'^main/', include('apps.main.urls')),
-    url(r'^torneo/', include('apps.torneo.urls')),
-    url(r'^partido/', include('apps.partido.urls')),
-    url(r'^jugador/', include('apps.jugador.urls')),
-    url(r'^equipo/', include('apps.equipo.urls'))
+    path('', LoginView.as_view(), name="main"),
+    path('salir/', LogOut.as_view()),
+    path('registrar/', RegisterUser.as_view(), name="reg"),
+    path('about/', AboutView.as_view(), name = 'cut'),
+    path('admin/', admin.site.urls, name= 'admin'),
+    path('main/', include('apps.main.urls')),
+    path('equipo/', include('apps.equipo.urls')),
+    path('torneo/', include('apps.torneo.urls')),
+    path('partido/', include('apps.partido.urls')),
+    path('jugador/', include('apps.jugador.urls')),
 ]

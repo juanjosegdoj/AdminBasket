@@ -1,12 +1,17 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>{% block title %} Document {% endblock %}</title>
 
+  {% block loadFilesExtra %}
+  {% endblock loadFilesExtra %}
+
  	<!-- Cargando archivo estático -->
+
 	{% load static from staticfiles %}
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
 	{% block styles %}
 
 	{% endblock styles %}
@@ -19,35 +24,30 @@
     <li>
         <a href="/jugador">Jugadores</a>
         <ul>
-            <li><a href="/jugador/listar">Listar</a></li>
+            <li><a href="/jugador/listado">Listado de jugadores</a></li>
             <li><a href="/jugador/nuevo">Nuevo Jugador</a></li>
+            <li><a href="../salir/">Crear todos los jugadores de mi Equipo</a></li>
       </ul>
     </li>
 
 
     <li>
-      <a href="/equipo" >Equipos</a>
+      <a href="/equipo">Equipos</a>
       <ul>
-        <li><a href="/equipo/nuevo">Agregar un equipo</a></li>
         <li><a href="/equipo/listado">Listado de equipos</a></li>
+        <li><a href="/equipo/nuevo">Agregar un equipo</a></li>
+				<li><a href="/equipo/equiposText">Equipos en texto a través de un query</a></li>
+				<li><a href="/equipo/opcionarEquipos">Menú de equipos a través de link</a></li>
       </ul>
     </li>
-    
-    <li>
-      <a href="/torneo" >Torneos</a>
-      <ul>
-        <li><a href="/torneo/nuevo">Crear un nuevo torneo</a></li>
-        <li><a href="/torneo/listado">Listado de torneos</a></li>
-      </ul>
-    </li>  
 
     <li>
-      <a href="/about">Acerca de</a>
+      <a href="/torneo">Torneos</a>
       <ul>
-        <li><a href="/about/">nuestre mision</a></li>
-        <li><a href="">Soporte y comunidad</a></li>
+        <li><a href="/torneo/listado">Listado de torneos</a></li>
+        <li><a href="/torneo/nuevo">Crear un nuevo torneo</a></li>
       </ul>
-    </li>  
+    </li>
 
     </ul>
     <ul>
@@ -60,15 +60,31 @@
               <li><a href="/salir/">Iniciar Sesión</a></li>
               <li><a href="/registrar">Registrarme</a></li>
             {% endif %}
-            
+
         </ul>
       </li>
     </ul>
 
+	</ul>
+	<ul>
+		<li>
+			<a href="">Consultas a la base de datos</a>
+			<ul>
+				<li><a href="">query 1</a></li>
+				<li><a href="">query 2</a></li>
+				<li><a href="">query 3</a></li>
+			</ul>
+		</li>
+	</ul>
+	
+	<li>
+		<a href="/about">Acerca de</a>
+		<ul>
+			<li><a href="/about/">nuestre mision</a></li>
+			<li><a href="">Soporte y comunidad</a></li>
+		</ul>
+	</li>
   {% endblock %}
-
-  {% block tituloPag %}
-  {% endblock tituloPag %}
 
   {% block header %}
   {% endblock header %}
@@ -80,7 +96,8 @@
 	{% endblock scripts %}
 
 	{% block footer %}
+    <p>{{ variable }}</p>
 	{% endblock footer %}
-	
+
 </body>
 </html>

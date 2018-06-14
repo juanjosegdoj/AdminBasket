@@ -1,10 +1,10 @@
 {% extends 'base/base.html'%}
 
-{% block content %}	
-
+{% block content %}
+	<h1>Buenas {{ variablePub }} </h1>
 	{% if object_list %}
 		<p> --- Equipos de todos los torneos  --- </p>
-		<table>	
+		<table>
 			<thead>
 				<tr>
 					<td>Torneo</td>
@@ -17,12 +17,12 @@
 					<td>PartW</td>
 					<td>CestAfa</td>
 					<td>CestCon</td>
-					<td>CestDif</td> 
+					<td>CestDif</td>
 				</tr>
 			</thead>
 		{% for equipo in object_list %}
 			<tbody>
-				<tr> 
+				<tr>
 					<td>{{ equipo.torneo.nombre }}</td>
 					<td>{{ equipo.nombre }}</td>
 					<td>{{ equipo.puntos }}</td>

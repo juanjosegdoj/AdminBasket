@@ -1,8 +1,9 @@
 from django.conf.urls import url
-from .views import RequirLoginView, HomeView, RegisterUser
-
+from .views import RequirLoginView, HomeView, RegisterUser, NuestraMisionView
+from django.urls import path
 
 urlpatterns = [
-	url(r'^registrar$', RegisterUser.as_view(), name="register"),
-	url(r'^requerimientos$', RequirLoginView.as_view()),
+	path('registrar/', RegisterUser.as_view(), name="register"),
+	path('requerimientos/', RequirLoginView.as_view()),
+	path('mision/', NuestraMisionView.as_view()),
 ]

@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,16 +42,17 @@ INSTALLED_APPS = [
     'apps.torneo',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'apps.main.middlewares.Mymiddleware'
 ]
+
 
 ROOT_URLCONF = 'adminBasket.urls'
 
@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'apps.main.processors.my_global_variables',   # este es un contexto personalizado por mi :)
             ],
         },
     },
@@ -81,9 +82,9 @@ WSGI_APPLICATION = 'adminBasket.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'basket',
+        'NAME': 'pilaeDB',
         'USER': 'postgres',
-        'PASSWORD': 'iaJJGJ*s',
+        'PASSWORD': '123456',
         'HOST': 'localhost',
         'PORT': 5432,
 
@@ -123,6 +124,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+DEBUG_TOOLBAR_PATCH_SETTINGS = False   # esto se debe borrar si no da
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/

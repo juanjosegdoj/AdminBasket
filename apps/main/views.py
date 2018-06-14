@@ -1,13 +1,19 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.views.generic import TemplateView, FormView, View
+from django.views.generic import TemplateView, FormView, View, DetailView
 from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, UserForm, LoginForm
 
-class LogOut(View):
-	def get(self, request):
-		logout(request)
-		return redirect('/')
+class NuestraMisionView(DetailView):
+
+	template_name = 'main/nuestra_mision.html'
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['now'] = timezone.now()
+		return context
+
+class LogOut(TemplateView):
+	template_name = 'base/fueradeservicio.html'
 
 class RequirLoginView(TemplateView):
 	template_name = 'main/required_log.html'
@@ -27,6 +33,7 @@ class LoginView(FormView):
 
 		return super(LoginView, self).form_valid(form)
 
+
 class RegisterUser(FormView):
 	form_class = UserForm
 	template_name = 'main/registroUsuario.html'
@@ -41,12 +48,5 @@ class RegisterUser(FormView):
 class HomeView(TemplateView):
 	template_name = 'main/home.html'
 
-
 class AboutView(TemplateView):
 	template_name = 'main/about.html'
-	# esta no va a funcionar porque e
-
-
-def jugadorCreado(request):
-	return HttpResponse('El jugador se ha creado en la base de datos con éxito')
-	

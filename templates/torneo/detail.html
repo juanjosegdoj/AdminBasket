@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+{% comment %}
+        Falta mucho para terminar este template
+        https://docs.djangoproject.com/es/2.0/intro/tutorial04/
+{% endcomment %}
+  <form action="{% url 'torneo:formulario' %}" method="post">
+    {% csrf_token %}
+    {% for equipo in torneo.equipo_set.all %}
+    {% endfor %}
+
+  </form>
+{% endblock content %}

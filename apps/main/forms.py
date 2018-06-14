@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
 class UserForm(UserCreationForm):
-	email = forms.EmailField()
+	email = forms.EmailField(required=False)
 	
 class LoginForm(forms.Form):
 	username = forms.CharField(max_length = 50)

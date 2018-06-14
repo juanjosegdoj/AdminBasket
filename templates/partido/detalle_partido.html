@@ -1,0 +1,12 @@
+{% extends "base/base.html" %}
+
+{% block title %}Resultados de partido{% endblock %}
+
+{% block content %}
+  <h1> Resultados de un partido</h1>
+
+  {% if partido %}
+    <p>El partido con la llave primaria {{ partido_id }} que va a jugar es con el nombre: {{ partido }} </p>
+  {% endif %}
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'base/base.html'%}
+
+{% block content %}
+
+  {% if equipo_list %}
+    <h6>Este es el lugar donde se actualizarán y borrarán los equipos </h6>
+      <ul>
+      {% for equipo in equipo_list %}
+          <li><a href="{% url 'equipo:detail' equipo.id %}">{{ equipo.nombre }}</a></li>
+{% comment %}
+          # gracias a "app_name = 'equipo" ubicada en equipo/urls puedo hacer esto: {% url 'equipo:detail' equipo.id %}
+          llamo la función detail que está en la equipo/views y mando el parámetro equipo.id
+          href="{% url 'app_name:NOMBRE DE LA VISTA' 'PARÁMETRO, PUES LA VISTA RECIBE UN PARÁMETRO' %}"
+{% endcomment %}
+
+      {% endfor %}
+      </ul>
+  {% else %}
+      <p>No hay Equipos</p>
+  {% endif %}
+
+{% endblock content %}
